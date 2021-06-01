@@ -4,109 +4,128 @@ button:disabled {
 .container {
     margin: 0 50px;
     color: gray;
-}
-.questions-wrapper {
-    display: flex;
-    width: 75%;
-    border:2px solid darkgray;
-    font-size: 16px;
-    font-weight: 500;
-    margin-top: 10px;
-    .question-number {
-        color: #fff;
-        background-color: #cc0909;
-        padding: 10px;
-        height: auto;
-    }
-    input {
-        flex-grow: 1;
-        border: none;
+
+    .success-banner {
+        margin-top: 15px;
+        color: green;
+        background: lightgreen;
+        padding: 25px;
+        border-radius: 5px;
     }
 
-    button {
-        color: gray;
-        border: none;
-        background: transparent;
-    }
-}
-
-input {
-    padding-left: 15px;
-    font-family: inherit;
-    border: 2px solid lightgray;
-}
-input::placeholder {
-    font-weight: 500;
-    color: lightgray;
-}
-button {
-    font-family: inherit;
-}
-.answers-wrapper {
-    span {
-        padding-left: 15px;
-        padding-right: 12px;
-        display: inline-block;
-        width: 15px;
+    .error {
+        color: red;
         font-weight: 500;
-    }
-
-    .remove-btn {
-        border: none;
-        background: transparent;
-        color: gray;
+        height: 20px;
     }
     
-    .answer {
-        margin-top: 10px;
-    }
-
-    .add-answer-btn {
-        border: none;
-        background-color: transparent;
-        color: gray;
+    .questions-wrapper {
+        display: flex;
+        width: 75%;
+        border:2px solid darkgray;
         font-size: 16px;
         font-weight: 500;
-
-        margin-left: 10%;
-    }
-
-    .flex-container {
-        display: flex;
-        flex-direction: column;
+        margin-top: 10px;
+        .question-number {
+            color: #fff;
+            background-color: #cc0909;
+            padding: 10px;
+            height: auto;
+        }
+        input {
+            flex-grow: 1;
+            border: none;
+        }
+    
+        button {
+            color: gray;
+            border: none;
+            background: transparent;
+        }
     }
     
     input {
-        height: 35px;
-        width: 50%;
+        padding-left: 15px;
+        font-family: inherit;
+        border: 2px solid lightgray;
     }
-}
-
-.add-question {
-    text-align: center;
-    margin-top: 20px;
-    button {
-        width: 325px;
-        padding: 10px;
-        background: #cc0909;
-        color: #fff;
-        font-size: 18px;
+    input::placeholder {
         font-weight: 500;
+        color: lightgray;
     }
-}
-
-footer {
-    text-align: right;
-    margin-top: 10px;
-
     button {
-        width: 325px;
-        text-transform: uppercase;
-        padding: 10px;
-        background: #db920d;
-        color: #fff;
-        font-weight: 500;
-        font-size: 18px;
-        margin-right: 10px;
+        font-family: inherit;
+    }
+    .answers-wrapper {
+        span {
+            padding-left: 15px;
+            padding-right: 12px;
+            display: inline-block;
+            width: 15px;
+            font-weight: 500;
+        }
+    
+        .remove-btn {
+            border: none;
+            background: transparent;
+            color: gray;
+        }
+        
+        .answer {
+            margin-top: 10px;
+    
+            .error {
+                margin-left: 40px;
+            }
+        }
+    
+        .add-answer-btn {
+            border: none;
+            background-color: transparent;
+            color: gray;
+            font-size: 16px;
+            font-weight: 500;
+    
+            margin-left: 10%;
+        }
+    
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        input {
+            height: 35px;
+            width: 50%;
+        }
+    }
+    
+    .add-question {
+        text-align: center;
+        margin-top: 20px;
+        button {
+            width: 325px;
+            padding: 10px;
+            background: #cc0909;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+    
+    footer {
+        text-align: right;
+        margin-top: 10px;
+    
+        button {
+            width: 325px;
+            text-transform: uppercase;
+            padding: 10px;
+            background: #db920d;
+            color: #fff;
+            font-weight: 500;
+            font-size: 18px;
+            margin-right: 10px;
+        }
     }
 }

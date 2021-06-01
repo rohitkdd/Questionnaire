@@ -10,20 +10,31 @@
                         placeholder="Type your question here" />
                     <button type="button" (click)="removeQuestion(questionIndex)">remove <strong>x</strong></button>
                 </div>
+                <div *ngIf="isFormSubmitted && question.controls.question.errors">
+                    <div *ngIf="isFormSubmitted && question.controls.question.errors.required" class="error">
+                        Please enter a question.
+                    </div>
+                </div>
                 <div formArrayName="answers" class="answers-wrapper">
                     <div class="answer"
                         *ngFor="let answer of question.controls.answers.controls; let answerIndex=index;"
                         [formGroupName]="answerIndex">
                         <span>{{answerIndex+1}}</span>
                         <input formControlName="answer" placeholder="Answer {{answerIndex + 1}}" />
-                        <button type="button" class="remove-btn"
-                            (click)="removeAnswer(questionIndex, answerIndex)"><strong>x</strong></button>
+
+                        <button type="button" class="remove-btn" (click)="removeAnswer(questionIndex, answerIndex)"
+                            [disabled]="answerIndex === 0"><strong>x</strong></button>
                         <button type="button" class="add-answer-btn" (click)="addAnswer(questionIndex)"
                             *ngIf="answerIndex == question.controls.answers.controls.length-1">Add
                             +</button>
+                        <div *ngIf="isFormSubmitted && answer.controls.answer.errors">
+                            <div *ngIf="isFormSubmitted && answer.controls.answer.errors.required" class="error">
+                                Please enter an answer.
+                            </div>
+                        </div>
                     </div>
                     <button type="button" class="add-answer-btn" (click)="addAnswer(questionIndex)"
-                        *ngIf="question.controls.answers.controls.length == 0">Add Answer
+                        *ngIf="question.controls.answers.controls.length === 0">Add Answer
                         +</button>
                 </div>
             </div>
@@ -31,9 +42,13 @@
         </div>
 
         <footer>
-            <button type="submit" (click)="submitQuestionnaire()">Submit</button>
+            <button type="submit" (click)="submitQuestionnaire()"
+                *ngIf="questionnaireForm.controls.questions.controls.length">Submit</button>
         </footer>
 
     </form>
 
+    <div class="success-banner" *ngIf="isFormValidated">
+        <strong>Thanks for your response!</strong>
+    </div>
 </div>
