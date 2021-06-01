@@ -20,7 +20,7 @@ export class QuestionsAndAnswersComponent implements OnInit {
   initializeQuestionnaireForm() {
     this.questionnaireForm = this.formBuilder.group({   
       questions: this.formBuilder.array([this.formBuilder.group({
-        question: ['', Validators.required] ,
+        question: ['', Validators.required],
         answers: this.formBuilder.array([this.formBuilder.group({answer: ['', Validators.required]})])
       })])
     });
