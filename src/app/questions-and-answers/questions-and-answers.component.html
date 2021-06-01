@@ -1,0 +1,39 @@
+<div class="container">
+    <h2>Questionnaire</h2>
+
+    <form [formGroup]="questionnaireForm">
+        <div formArrayName="questions">
+            <div *ngFor="let question of questionItems.controls; let questionIndex=index;"
+                [formGroupName]="questionIndex">
+                <div class="questions-wrapper">
+                    <span class="question-number">Q{{questionIndex+1}}</span> <input formControlName="question"
+                        placeholder="Type your question here" />
+                    <button type="button" (click)="removeQuestion(questionIndex)">remove <strong>x</strong></button>
+                </div>
+                <div formArrayName="answers" class="answers-wrapper">
+                    <div class="answer"
+                        *ngFor="let answer of question.controls.answers.controls; let answerIndex=index;"
+                        [formGroupName]="answerIndex">
+                        <span>{{answerIndex+1}}</span>
+                        <input formControlName="answer" placeholder="Answer {{answerIndex + 1}}" />
+                        <button type="button" class="remove-btn"
+                            (click)="removeAnswer(questionIndex, answerIndex)"><strong>x</strong></button>
+                        <button type="button" class="add-answer-btn" (click)="addAnswer(questionIndex)"
+                            *ngIf="answerIndex == question.controls.answers.controls.length-1">Add
+                            +</button>
+                    </div>
+                    <button type="button" class="add-answer-btn" (click)="addAnswer(questionIndex)"
+                        *ngIf="question.controls.answers.controls.length == 0">Add Answer
+                        +</button>
+                </div>
+            </div>
+            <div class="add-question"><button type="button" (click)="addQuestion()">Add Question + </button></div>
+        </div>
+
+        <footer>
+            <button type="submit" (click)="submitQuestionnaire()">Submit</button>
+        </footer>
+
+    </form>
+
+</div>
